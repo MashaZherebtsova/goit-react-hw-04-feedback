@@ -48,7 +48,7 @@ switch (name) {
         <FidbackOptions options={options} onLeaveFeedback= {onLeaveFeedback}/>
         </Section>
         <Section title="Statistics">
-          {{countTotalFeedback} ?
+          {countTotalFeedback() !== 0 ?
           <Statistics good={good} neutral={neutral} bad={bad} total={countTotalFeedback()} positivePercentage={countPositiveFeedbackPercentage()}/> : <Notification message='No feedback given'/> }
         </Section>
       </div>
