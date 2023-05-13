@@ -1,0 +1,15 @@
+.btn {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;    
+           
+}
+
+.feedbackBtn {
+    background-color: gray;
+    border: none;
+    padding: 5px 5px;
+    font-size: 20px;
+    
+    border-radius: 5px;
+}
