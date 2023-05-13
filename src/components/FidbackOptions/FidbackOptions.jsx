@@ -3,6 +3,7 @@ import React from 'react'
 import css from './FeedbackOptions.module.css';
 
 export function FidbackOptions({options, onLeaveFeedback}) {
+  
   return (
     <div className={css.btn}>
       {options.map(item => {
