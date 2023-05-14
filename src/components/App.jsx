@@ -11,15 +11,11 @@ export function App() {
 const [good, setGood] = useState(0);
 const [neutral, setNeutral] = useState(0);
 const [bad, setBad] = useState(0);
-const options = {
-  good: good,
-  neutral: neutral,
-  bad: bad,
-};
-//const total = countTotalFeedback ();
+
 
 const countTotalFeedback = () => {
-  return Object.values (good,neutral,bad).reduce((acc,item)=>acc+item, 0)
+  
+  return good+neutral+bad;
 
 }
 const countPositiveFeedbackPercentage = () => {
@@ -29,23 +25,31 @@ const countPositiveFeedbackPercentage = () => {
   }
 return Math.round(good/countTotalFeedback() *100)
 }
-const onLeaveFeedback= (e) => {
-const {name} = e.target;
-switch (name) {
+
+
+const handleOnBtnClick= (e) => {
+  
+switch (e.target.name) {
   case 'good': setGood(good + 1);
   break;
   case 'neutral': setNeutral(neutral+1);
   break;
   case 'bad': setBad(bad+1);
   break;
-  default: break; }
-}
+  default: break;
+
+ }
+
+};
+
+const options = { good, bad, neutral };
+  const stateNames = Object.keys(options);
 
   return (
   
       <div>
         <Section title='Please leave feedback'>
-        <FidbackOptions options={options} onLeaveFeedback= {onLeaveFeedback}/>
+        <FidbackOptions options={stateNames} onLeaveFeedback= {handleOnBtnClick}/>
         </Section>
         <Section title="Statistics">
           {countTotalFeedback() !== 0 ?
